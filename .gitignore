@@ -1,0 +1,28 @@
+# -----------------------------------------
+# File: .gitignore
+# 
+# Amir Ben Slimane & Salah Bennour, 2015
+# Polytech Nice Sophia - Computer Sciences
+# -----------------------------------------
+
+# Temporary
+*~
+
+# Mac OS
+.DS_Store
+
+# Unwanted java
+target/
+data/
+
+# Eclipse
+.classpath
+.settings
+.project
+.metadata
+
+# IntelliJ
+.idea
+*.iml
+*.iws
+/bin/
