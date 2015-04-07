@@ -7,12 +7,24 @@
   <version>1.0-SNAPSHOT</version>
   <name>EstimationRecursive</name>
   <url>http://maven.apache.org</url>
+
   <dependencies>
+    
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.jblas</groupId>
+      <artifactId>jblas</artifactId>
+      <version>1.2.3</version>
+    </dependency> 
+    
+
   </dependencies>
+
+
 </project>
