@@ -10,14 +10,6 @@ public class Mobile extends Point{
 		this.vy = vy;
 	}
 
-	public double getVx() {
-		return vx;
-	}
-
-	public double getVy() {
-		return vy;
-	}
-
 	public void avancer(int t) {
 		double xt = positions.get(0, 0) + vx * t;
 		double yt = positions.get(1, 0) + vy * t;
@@ -27,4 +19,7 @@ public class Mobile extends Point{
 		positions.put(0, t, xt);
 		positions.put(1, t, yt);
 	}
+	
+	public double getVx() { return vx; }
+	public double getVy() { return vy; }
 }
