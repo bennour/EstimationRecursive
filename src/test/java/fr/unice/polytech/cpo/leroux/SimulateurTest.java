@@ -16,7 +16,7 @@ public class SimulateurTest {
 	public void setUp() throws Exception {
 		observeur = new Observeur(0, 0, 0, 10);
 		mobile = new Mobile(0, 0, 0, 0);
-		simulateur = new Simulateur(observeur, mobile);
+		simulateur = new Simulateur(0, observeur, mobile);
 	}
 
 	@After

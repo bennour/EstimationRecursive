@@ -19,7 +19,6 @@ public class Resolution {
 		B = transposeA.mmul(B);
 
 		DoubleMatrix g = gamma.mmul(res).sub(B);
-		System.out.println(g);
 
 		DoubleMatrix h = g;
 

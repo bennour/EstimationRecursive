@@ -6,10 +6,14 @@ public class Simulateur {
 	private double x0, y0, vx, vy;
 	private Observeur observeur;
 	private Mobile mobile;
-
-	public Simulateur(Observeur observeur, Mobile mobile) {
+	private double[] angles;
+	
+	public Simulateur(int temps, Observeur observeur, Mobile mobile) {
 		this.observeur = observeur;
 		this.mobile = mobile;
+		observeur.updatePosition(temps);
+		mobile.updatePosition(temps);
+		angles = calculerAngles(temps);
 		x0 = y0 = vx = vy = 0;
 	}
 
@@ -67,10 +71,17 @@ public class Simulateur {
 		return Math.cos(theta) * observeur.y(t) - Math.sin(theta)
 				* observeur.x(t);
 	}
+	
+	private double[] calculerAngles(int t) {
+		angles = new double[t];
+		for(int i = 0; i < t; i++)
+			angles[i] = getTheta(i);
+		return angles;
+	}
 
-	private double getTheta(int t) {
-		return Math.atan2(mobile.y(t) - observeur.y(t),
-				mobile.x(t) - observeur.x(t));
+	private double getTheta(int i) {
+		return Math.atan2(mobile.y(i) - observeur.y(i),
+				mobile.x(i) - observeur.x(i));
 	}
 
 	public String toString() {
@@ -98,4 +109,7 @@ public class Simulateur {
 
 	public Mobile getMobile() { return mobile; }
 	public void setMobile(Mobile mobile) { this.mobile = mobile; }
+	
+	public double[] getAngles() { return angles; }
+	public void setAngles(double[] angles) { this.angles = angles; }
 }
