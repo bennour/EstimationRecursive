@@ -10,31 +10,6 @@ public class Observeur extends Point {
 		this.rayon = rayon;
 	}
 	
-//	public void updatePosition(int t) {
-//		DoubleMatrix TEMP = new DoubleMatrix(2, 1);
-//		DoubleMatrix oldpos;
-//		for (int i = 0; i < t; i++) {
-//			double new_x_theoric = (double) (x0 + rayon * Math.cos(theta * i));
-//			double new_y_theoric = (double) (y0 + rayon * Math.sin(theta * i));
-//			double new_x_noise = new_x_theoric + bruit();
-//			double new_y_noise = new_y_theoric + bruit();
-//
-//			TEMP.put(0, 0, new_x_noise);
-//			TEMP.put(1, 0, new_y_noise);
-//
-//			oldpos = bruit;
-//			bruit.resize(bruit.rows, bruit.columns + 1);
-//			bruit = DoubleMatrix.concatHorizontally(oldpos, TEMP);
-//
-//			TEMP.put(0, 0, new_x_theoric);
-//			TEMP.put(1, 0, new_y_theoric);
-//		
-//			oldpos = positions;
-//			positions.resize(positions.rows, positions.columns + 1);
-//			positions = DoubleMatrix.concatHorizontally(oldpos, TEMP);
-//		}
-//	}
-	
 	public void updatePosition(int t) {
 		positions.resize(2, t);
 		for(int i = 1; i < t; i++) {

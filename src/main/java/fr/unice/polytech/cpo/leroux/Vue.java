@@ -18,6 +18,8 @@ import org.jfree.ui.ApplicationFrame;
 import org.jfree.util.ShapeUtilities;
 
 public class Vue extends ApplicationFrame {
+	private static final long serialVersionUID = 1L;
+	
 	private DoubleMatrix observeur, mobile;
 	
     /**

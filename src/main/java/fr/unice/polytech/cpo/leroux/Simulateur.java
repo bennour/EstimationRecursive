@@ -4,6 +4,7 @@ import org.jblas.DoubleMatrix;
 
 public class Simulateur {
 	private double x0, y0, vx, vy;
+	private int temps;
 	private Observeur observeur;
 	private Mobile mobile;
 	private double[] angles;
@@ -11,6 +12,7 @@ public class Simulateur {
 	public Simulateur(int temps, Observeur observeur, Mobile mobile) {
 		this.observeur = observeur;
 		this.mobile = mobile;
+		this.temps = temps;
 		observeur.updatePosition(temps);
 		mobile.updatePosition(temps);
 		angles = calculerAngles(temps);
@@ -18,7 +20,7 @@ public class Simulateur {
 	}
 
 	public void resolutionParametres(Resolution.Methode methode) {
-		DoubleMatrix A = new DoubleMatrix(4, 4), B = new DoubleMatrix(4, 1);
+		DoubleMatrix A = new DoubleMatrix(temps, 4), B = new DoubleMatrix(4, 1);
 
 		for (int i = 0; i < A.rows; i++) {
 			for (int j = 0; j < A.columns; j++) {
@@ -36,7 +38,7 @@ public class Simulateur {
 			solutions = Resolution.gradiantConjugue(A, B);
 			break;
 		case MOINDRES_CARRES :
-			solutions = Resolution.moindresCarres(0, A, B); // TODO
+			solutions = Resolution.moindresCarres(temps, A, B); // TODO
 			break;
 		case INVERSE :
 			solutions = Resolution.methodeInverse(A, B);

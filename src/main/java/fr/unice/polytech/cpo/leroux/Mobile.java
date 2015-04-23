@@ -1,7 +1,5 @@
 package fr.unice.polytech.cpo.leroux;
 
-import org.jblas.DoubleMatrix;
-
 public class Mobile extends Point{
 	
 	private final double vx, vy;
@@ -11,20 +9,6 @@ public class Mobile extends Point{
 		this.vx = vx;
 		this.vy = vy;
 	}
-
-//	public void updatePosition(int t) {
-//		DoubleMatrix TEMP = new DoubleMatrix(2,1);
-//		for (int i = 0; i < t; i++) {
-//
-//			TEMP.put(0, 0, x0 + vx * i);
-//			TEMP.put(1, 0, y0 + vy * i);
-//		
-//			DoubleMatrix oldpos = positions;
-//			positions.resize(positions.rows, positions.columns + 1);
-//			
-//			positions = DoubleMatrix.concatHorizontally(oldpos, TEMP);
-//		}
-//	}
 	
 	public void updatePosition(int t) {
 		positions.resize(2, t);

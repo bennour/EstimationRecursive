@@ -1,7 +1,5 @@
 package fr.unice.polytech.cpo.leroux;
 
-import java.time.format.ResolverStyle;
-
 import org.jfree.ui.RefineryUtilities;
 
 public class Launch {
@@ -23,17 +21,17 @@ public class Launch {
 
 		System.out.println("\n\n*************** Resolution *****************\n");
 		simulateur.resolutionParametres(Resolution.Methode.GRADIANT_CONJUGUE);
-		System.out.println("\nPar la méthode du gradiant conjugué : ");
+		System.out.println("\nPar la mï¿½thode du gradiant conjuguï¿½ : ");
 		System.out.println(simulateur.toString());
 		
 		simulateur = new Simulateur(20, observeur, mobile);
 		simulateur.resolutionParametres(Resolution.Methode.MOINDRES_CARRES);
-		System.out.println("\nPar la méthode des moindres carées : ");
+		System.out.println("\nPar la mï¿½thode des moindres carï¿½es : ");
 		System.out.println(simulateur.toString());
 		
 		simulateur = new Simulateur(20, observeur, mobile);
 		simulateur.resolutionParametres(Resolution.Methode.INVERSE);
-		System.out.println("\nPar la méthode inverse : ");
+		System.out.println("\nPar la mï¿½thode inverse : ");
 		System.out.println(simulateur.toString());
 	}
 }

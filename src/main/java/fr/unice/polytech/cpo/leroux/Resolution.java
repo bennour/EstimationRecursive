@@ -28,7 +28,7 @@ public class Resolution {
 			temp = h.transpose().mmul(g).get(0, 0)
 					/ (h.transpose().mmul(gamma).mmul(h).get(0, 0));
 			
-			res = res.sub(g.mmul(temp));
+			res = res.sub(h.mmul(temp));
 			
 			g = g.sub(gamma.mmul(h).mmul(temp));
 			
