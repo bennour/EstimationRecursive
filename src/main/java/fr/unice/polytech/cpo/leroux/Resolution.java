@@ -1,6 +1,7 @@
 package fr.unice.polytech.cpo.leroux;
 
 import org.jblas.DoubleMatrix;
+import org.jblas.SimpleBlas;
 
 public class Resolution {
 	
@@ -78,15 +79,25 @@ public class Resolution {
 		DoubleMatrix gamma = transposeA.mmul(A);
 		B = transposeA.mmul(B);
 		
-		res = Solve.pinv(gamma).mmul(B);
+		res = inverse(gamma).mmul(B);
 		
 		return res;
 	}
 	
-	public static void predictionErreur(DoubleMatrix pratique, DoubleMatrix theorique) {
-		for (int i = 0; i < pratique.rows; i++) {
-			for (int j = 0; j < pratique.columns; j++)
-				System.out.println(Math.abs(pratique.get(i,j) - theorique.get(i,j)));
+	private static DoubleMatrix solveLeastSquares(DoubleMatrix A, DoubleMatrix B) {
+		if (B.rows < A.columns) {
+			DoubleMatrix X = DoubleMatrix.concatVertically(B, new DoubleMatrix(
+					A.columns - B.rows, B.columns));
+			SimpleBlas.gelsd(A.dup(), X);
+			return X;
+		} else {
+			DoubleMatrix X = B.dup();
+			SimpleBlas.gelsd(A.dup(), X);
+			return X.getRange(0, A.columns, 0, B.columns);
 		}
+	}
+
+	private static DoubleMatrix inverse(DoubleMatrix A) {
+		return solveLeastSquares(A, DoubleMatrix.eye(A.rows));
 	}
 }

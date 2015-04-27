@@ -50,7 +50,7 @@ public class Vue extends ApplicationFrame {
     private XYDataset createDataset() {
        
         final XYSeries series1 = new XYSeries("Observeur");
-        for(int i = 0; i < observeur.columns; i++)
+        for(int i = 1; i < observeur.columns; i++)
         	series1.add(observeur.get(0, i), observeur.get(1, i));
  
         final XYSeries series2 = new XYSeries("Mobile");
@@ -77,7 +77,7 @@ public class Vue extends ApplicationFrame {
        
         // create the chart...
         final JFreeChart chart = ChartFactory.createXYLineChart(
-            "Simulation",      // chart title
+            "Trajectoire du mobile et de l'observateur",      // chart title
             "X",                      // x axis label
             "Y",                      // y axis label
             dataset,                  // data

@@ -5,78 +5,72 @@ import org.jblas.DoubleMatrix;
 public class Simulateur {
 	private double x0, y0, vx, vy;
 	private int temps;
-	private Observeur observeur;
+	private Observateur observeur;
 	private Mobile mobile;
 	private double[] angles;
-	
-	public Simulateur(int temps, Observeur observeur, Mobile mobile) {
+	private DoubleMatrix A, B;
+
+	public Simulateur(int temps, Observateur observeur, Mobile mobile) {
 		this.observeur = observeur;
 		this.mobile = mobile;
 		this.temps = temps;
-		observeur.updatePosition(temps);
-		mobile.updatePosition(temps);
+
+		A = new DoubleMatrix(temps, 4);
+		B = new DoubleMatrix(temps, 1);
+
+		observeur.genererPosition(temps);
+		mobile.genererPosition(temps);
 		angles = calculerAngles(temps);
 		x0 = y0 = vx = vy = 0;
 	}
 
 	public void resolutionParametres(Resolution.Methode methode) {
-		DoubleMatrix A = new DoubleMatrix(temps, 4), B = new DoubleMatrix(4, 1);
-
-		for (int i = 0; i < A.rows; i++) {
-			for (int j = 0; j < A.columns; j++) {
-				A.put(i, j, getConstanteA(j, j));
-			}
-		}
-
-		for (int i = 0; i < B.columns; i++) {
-			B.put(0, i, getConstanteB(i));
-		}
+		initA();
+		initB();
 
 		DoubleMatrix solutions = null;
-		switch(methode) {
-		case GRADIANT_CONJUGUE : 
+		switch (methode) {
+		case GRADIANT_CONJUGUE:
 			solutions = Resolution.gradiantConjugue(A, B);
 			break;
-		case MOINDRES_CARRES :
-			solutions = Resolution.moindresCarres(temps, A, B); // TODO
+		case MOINDRES_CARRES:
+			solutions = Resolution.moindresCarres(temps, A, B);
 			break;
-		case INVERSE :
+		case INVERSE:
 			solutions = Resolution.methodeInverse(A, B);
 			break;
-		default :
+		default:
 			break;
 		}
-		
+
 		x0 = solutions.get(0, 0);
 		vx = solutions.get(1, 0);
 		y0 = solutions.get(2, 0);
 		vy = solutions.get(3, 0);
 	}
 
-	private double getConstanteA(int i, int t) {
-		switch (i) {
-		case 0:
-			return Math.sin(getTheta(t));
-		case 1:
-			return Math.sin(getTheta(t)) * t;
-		case 2:
-			return Math.cos(getTheta(t));
-		case 3:
-			return Math.cos(getTheta(t)) * t;
-		default:
-			return -1.0;
+	public void initA() {
+		double theta;
+		for (int i = 0; i < A.rows; i++) {
+			theta = angles[i];
+			A.put(i, 0, Math.sin(theta));
+			A.put(i, 1, -Math.cos(theta));
+			A.put(i, 2, i * Math.sin(theta));
+			A.put(i, 3, -i * Math.cos(theta));
 		}
 	}
 
-	private double getConstanteB(int t) {
-		double theta = getTheta(t);
-		return Math.cos(theta) * observeur.y(t) - Math.sin(theta)
-				* observeur.x(t);
+	public void initB() {
+		double theta;
+		for (int i = 0; i < B.rows; i++) {
+			theta = angles[i];
+			B.put(i,0, observeur.getPositions().get(0,i) * Math.sin(theta) - observeur.getPositions().get(1,i) * Math.cos(theta));
+		}	
 	}
-	
+
 	private double[] calculerAngles(int t) {
 		angles = new double[t];
-		for(int i = 0; i < t; i++)
+		for (int i = 0; i < t; i++)
 			angles[i] = getTheta(i);
 		return angles;
 	}
@@ -85,10 +79,15 @@ public class Simulateur {
 		return Math.atan2(mobile.y(i) - observeur.y(i),
 				mobile.x(i) - observeur.x(i));
 	}
+	
+	public String afficherErreur() {
+		return "x0 : " + Math.abs(mobile.getX0() - x0) + " y0 : " + Math.abs(mobile.getY0() - y0)
+				+ " vx : " + Math.abs(mobile.getVx() - vx) + " vy : " + Math.abs(mobile.getVy() - vy);
+	}
 
 	public String toString() {
 		return "x0 = " + x0 + " | y0 = " + y0 + " | vx = " + vx + " | vy = "
-				+ vy;
+				+ vy + "\nErreur \n" + afficherErreur();
 	}
 
 	/**
@@ -106,12 +105,21 @@ public class Simulateur {
 	public double getVy() { return vy; }
 	public void setVy(double vy) { this.vy = vy; }
 
-	public Observeur getObserveur() { return observeur; }
-	public void setObserveur(Observeur observeur) { this.observeur = observeur; }
+	public Observateur getObserveur() { return observeur; }
+	public void setObserveur(Observateur observeur) { this.observeur = observeur; }
 
 	public Mobile getMobile() { return mobile; }
 	public void setMobile(Mobile mobile) { this.mobile = mobile; }
-	
+
 	public double[] getAngles() { return angles; }
 	public void setAngles(double[] angles) { this.angles = angles; }
+
+	public int getTemps() { return temps; }
+	public void setTemps(int temps) { this.temps = temps; }
+
+	public DoubleMatrix getA() { return A; }
+	public void setA(DoubleMatrix a) { A = a; }
+
+	public DoubleMatrix getB() { return B; }
+	public void setB(DoubleMatrix b) { B = b; }
 }
