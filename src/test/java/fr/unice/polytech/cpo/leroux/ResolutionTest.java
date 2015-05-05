@@ -10,14 +10,16 @@ import org.junit.Test;
 public class ResolutionTest {
 	private DoubleMatrix A, B;
 
-	@Before
+	@Before // Initialisation des matrices A et B avant chaque test
 	public void setUp() throws Exception {
 		double[][] tabA = new double[4][4], tabB = new double[4][1];
+		// Matrice A
 		tabA[0] = new double[]{3.044, 0.705, -0.896, 1.324};
 		tabA[1] = new double[]{0.705, 1.303, -1.055, 0.934};
 		tabA[2] = new double[]{-0.896, -1.055, 1.202, -1.096};
 		tabA[3] = new double[]{1.324, 0.934, -1.096, 1.269};
 		
+		// Matrice B
 		tabB[0][0] = -0.098;
 		tabB[1][0] = -0.886;
 		tabB[2][0] = 0.567;
@@ -35,29 +37,30 @@ public class ResolutionTest {
 	
 	@Test
 	public void testGradiantConjugue() {
-		DoubleMatrix res = Resolution.gradiantConjugue(A, B);
-		DoubleMatrix resxA = A.mmul(res);
+		DoubleMatrix res = Resolution.gradiantConjugue(A, B); // Resolution de X
+		DoubleMatrix resxA = A.mmul(res); // AX := A * X
 		
-		assertTrue(resxA.equals(B));
+		assertTrue(resxA.equals(B)); // Test si AX = B
 	}
 	
 	@Test
 	public void testMoindresCarres() {
-		DoubleMatrix res = Resolution.moindresCarres(4, A, B);
-		DoubleMatrix resxA = A.mmul(res);
+		DoubleMatrix res = Resolution.moindresCarres(4, A, B);// Resolution de X
+		DoubleMatrix resxA = A.mmul(res); // AX := A * X
 		
 		for(int i = 0; i < resxA.rows; i++) {
 			for(int j = 0; j < resxA.columns; j++)
+				// test pour chaque valeur si AX(i,j) = B(i,j) a 0,01 pres 
 				assertTrue(Math.abs(resxA.get(i, j) - B.get(i, j)) < 0.01);
 		}
 	}
 	
 	@Test
 	public void testInverse() {
-		DoubleMatrix res = Resolution.methodeInverse(A, B);
-		DoubleMatrix resxA = A.mmul(res);
+		DoubleMatrix res = Resolution.methodeInverse(A, B); // Resolution de X
+		DoubleMatrix resxA = A.mmul(res); // AX := A * X
 		
-		assertTrue(resxA.equals(B));
+		assertTrue(resxA.equals(B)); // Test si AX = B
 	}
 
 }

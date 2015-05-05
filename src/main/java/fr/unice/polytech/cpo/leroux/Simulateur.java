@@ -44,8 +44,8 @@ public class Simulateur {
 		}
 
 		x0 = solutions.get(0, 0);
-		vx = solutions.get(1, 0);
-		y0 = solutions.get(2, 0);
+		y0 = solutions.get(1, 0);
+		vx = solutions.get(2, 0);
 		vy = solutions.get(3, 0);
 	}
 

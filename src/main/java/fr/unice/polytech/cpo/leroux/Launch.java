@@ -21,7 +21,7 @@ public class Launch {
 	
 	public static void launch(boolean bruit) {
 		Observateur observeur = new Observateur(20, 20, 0.2, 50, bruit);
-		Mobile mobile = new Mobile(5, 5, 2, 2.5);
+		Mobile mobile = new Mobile(10, 10, 2, 2.5);
 		Simulateur simulateur = new Simulateur(20, observeur, mobile);
 		
 		System.out.println("Angles entre l'observeur et le mobile aux temps t :");
