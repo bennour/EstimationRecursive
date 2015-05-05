@@ -48,6 +48,10 @@ public class Launch {
 		simulateur.resolutionParametres(Resolution.Methode.INVERSE);
 		System.out.println("\nPar la methode inverse : ");
 		System.out.println(simulateur.toString());
+		
+		System.out.println("\n*************** Matrices *****************\n");
+		System.out.println("A\n" + printMatrix(simulateur.getA()));
+		System.out.println("B\n" + printMatrix(simulateur.getB()));
 	}
 	
 	public static String printMatrix(DoubleMatrix m) {

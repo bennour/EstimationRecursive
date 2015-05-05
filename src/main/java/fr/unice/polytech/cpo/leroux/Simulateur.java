@@ -15,20 +15,19 @@ public class Simulateur {
 		this.mobile = mobile;
 		this.temps = temps;
 
-		A = new DoubleMatrix(temps, 4);
-		B = new DoubleMatrix(temps, 1);
-
 		observeur.genererPosition(temps);
 		mobile.genererPosition(temps);
+		
 		angles = calculerAngles(temps);
-		x0 = y0 = vx = vy = 0;
+		x0 = y0 = vx = vy = 0.0;		
 	}
 
 	public void resolutionParametres(Resolution.Methode methode) {
 		initA();
 		initB();
-
+		
 		DoubleMatrix solutions = null;
+		
 		switch (methode) {
 		case GRADIANT_CONJUGUE:
 			solutions = Resolution.gradiantConjugue(A, B);
@@ -50,6 +49,7 @@ public class Simulateur {
 	}
 
 	public void initA() {
+		A = new DoubleMatrix(temps, 4);
 		double theta;
 		for (int i = 0; i < A.rows; i++) {
 			theta = angles[i];
@@ -61,10 +61,14 @@ public class Simulateur {
 	}
 
 	public void initB() {
-		double theta;
+		B = new DoubleMatrix(temps, 1);
+		
+		double theta, bruit = 0.0;
 		for (int i = 0; i < B.rows; i++) {
 			theta = angles[i];
-			B.put(i,0, observeur.getPositions().get(0,i) * Math.sin(theta) - observeur.getPositions().get(1,i) * Math.cos(theta));
+			if(observeur.isBruit())
+				bruit = bruit();
+			B.put(i,0, bruit + observeur.getPositions().get(0,i) * Math.sin(theta) - observeur.getPositions().get(1,i) * Math.cos(theta));
 		}	
 	}
 
@@ -73,6 +77,11 @@ public class Simulateur {
 		for (int i = 0; i < t; i++)
 			angles[i] = getTheta(i);
 		return angles;
+	}
+	
+	public double bruit() {
+		double min = - observeur.getRayon() * 0.03, max = - min; 
+		return Math.random() * (max - min) + min;
 	}
 
 	private double getTheta(int i) {

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.27)  28 APR 2015 00:27
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.27)  5 MAY 2015 20:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -641,13 +641,25 @@ Package pdftex.def Info: img/diagramme.jpg used on input line 128.
 (pdftex.def)             Requested size: 574.14359pt x 168.62958pt.
  [4 <./img/diagramme.jpg>]
 
+! Package amsmath Error: Erroneous nesting of equation structures;
+(amsmath)                trying to recover with `aligned'.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.230 				\end{align*}
+                      
+? 
+[5]
+
 ! Package inputenc Error: Unicode char \u8:  not set up for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.177 ...e aléatoire variant entre [- rayon * 3 
+l.241 ...e aléatoire variant entre [- rayon * 3 
                                                   \%; rayon * 3 \% ] dont l...
 
 ? 
@@ -658,254 +670,245 @@ See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.177 ...riant entre [- rayon * 3 \%; rayon * 3 
+l.241 ...riant entre [- rayon * 3 \%; rayon * 3 
                                                   \% ] dont l’espérance m...
 
 ? 
-
-! Package amsmath Error: Erroneous nesting of equation structures;
-(amsmath)                trying to recover with `aligned'.
-
-See the amsmath package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.238 				\end{align*}
-                      
-? 
-[5] [6] <img/testInit.png, id=40, 536.0025pt x 316.18124pt>
+[6] <img/testInit.png, id=40, 536.0025pt x 316.18124pt>
 File: img/testInit.png Graphic file (type png)
-
-<use img/testInit.png>
-Package pdftex.def Info: img/testInit.png used on input line 256.
+ <use img/testInit.png>
+Package pdftex.def Info: img/testInit.png used on input line 257.
 (pdftex.def)             Requested size: 268.0006pt x 158.09023pt.
- <img/testResol.png, id=42, 629.35126pt x 471.7625pt>
-File: img/testResol.png Graphic file (type png)
 
-<use img/testResol.png>
-Package pdftex.def Info: img/testResol.png used on input line 265.
+<img/testResol.png, id=42, 629.35126pt x 471.7625pt>
+File: img/testResol.png Graphic file (type png)
+ <use img/testResol.png>
+Package pdftex.def Info: img/testResol.png used on input line 266.
 (pdftex.def)             Requested size: 314.67485pt x 235.88066pt.
- [7 <./img/testInit.png> <./img/testResol.png>]
+
+[7 <./img/testInit.png> <./img/testResol.png>]
 <img/inverse.png, id=48, 771.88374pt x 198.7425pt>
 File: img/inverse.png Graphic file (type png)
  <use img/inverse.png>
-Package pdftex.def Info: img/inverse.png used on input line 323.
+Package pdftex.def Info: img/inverse.png used on input line 324.
 (pdftex.def)             Requested size: 385.94092pt x 99.371pt.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.336 						\begin{pmatrix}
+l.337 						\begin{pmatrix}
                             10 \\ 10 \\ 2 \\ 2.5	\end{pmatrix}
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.336 ...atrix} 10 \\ 10 \\ 2 \\ 2.5	\end{pmatrix}
+l.337 ...atrix} 10 \\ 10 \\ 2 \\ 2.5	\end{pmatrix}
                                                   
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.338 						\begin{pmatrix}
+l.339 						\begin{pmatrix}
                             2.61E-12 \\ 2.05E-12 \\ 2.70E-13 \\ 1.42E-13\end...
 
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.338 ...E-12 \\ 2.70E-13 \\ 1.42E-13\end{pmatrix}
+l.339 ...E-12 \\ 2.70E-13 \\ 1.42E-13\end{pmatrix}
                                                   
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.340 						\begin{pmatrix}
-                            10 \\ 10 \\ 2\\ 2,5	\end{pmatrix}
+l.341 						\begin{pmatrix}
+                            9.47 \\ 9.54 \\ 2.05 \\ 2.54	\end{pmatrix}
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.340 ...matrix} 10 \\ 10 \\ 2\\ 2,5	\end{pmatrix}
+l.341 ....47 \\ 9.54 \\ 2.05 \\ 2.54	\end{pmatrix}
                                                   
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.342 			 			\begin{pmatrix}
-                             6.25E-13 \\ 1.70E-13 \\ 1.21E-13 \\ 0	\end{pmat...
+l.343 			 			\begin{pmatrix}
+                             0.53\\ 0.46 \\ 0.05 \\ 0.04	\end{pmatrix} \\ \h...
 
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.342 ...\ 1.70E-13 \\ 1.21E-13 \\ 0	\end{pmatrix}
+l.343 ...0.53\\ 0.46 \\ 0.05 \\ 0.04	\end{pmatrix}
                                                    \\ \hline
 ? 
-[8 <./img/inverse.png>]
+[8 <./img/inverse.png>] [9]
 ! Missing number, treated as zero.
 <to be read again> 
                    x
-l.360 ...qui se présente ici, à savoir T \time x
+l.361 ...qui se présente ici, à savoir T \time x
                                                    = b.
 ? 
-<img/gradient_conjugue.png, id=54, 469.755pt x 319.1925pt>
+<img/gradient_conjugue.png, id=57, 469.755pt x 319.1925pt>
 File: img/gradient_conjugue.png Graphic file (type png)
 
 <use img/gradient_conjugue.png>
-Package pdftex.def Info: img/gradient_conjugue.png used on input line 367.
+Package pdftex.def Info: img/gradient_conjugue.png used on input line 368.
 (pdftex.def)             Requested size: 234.87692pt x 159.59586pt.
 
-<img/gradiantConjugue.png, id=55, 771.88374pt x 557.08125pt>
+<img/gradiantConjugue.png, id=58, 771.88374pt x 557.08125pt>
 File: img/gradiantConjugue.png Graphic file (type png)
 
 <use img/gradiantConjugue.png>
-Package pdftex.def Info: img/gradiantConjugue.png used on input line 375.
+Package pdftex.def Info: img/gradiantConjugue.png used on input line 376.
 (pdftex.def)             Requested size: 385.94092pt x 278.53995pt.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.388 					\begin{pmatrix}
+l.389 					\begin{pmatrix}
                            10 \\ 10 \\ 2 \\ 2.5	\end{pmatrix}
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.388 ...atrix} 10 \\ 10 \\ 2 \\ 2.5	\end{pmatrix}
+l.389 ...atrix} 10 \\ 10 \\ 2 \\ 2.5	\end{pmatrix}
                                                   
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.390 						\begin{pmatrix}
+l.391 						\begin{pmatrix}
                             2.74E-12 \\ 1.82E-11 \\ 5.78E-11 \\ 2.49E-10\end...
 
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.390 ...E-11 \\ 5.78E-11 \\ 2.49E-10\end{pmatrix}
+l.391 ...E-11 \\ 5.78E-11 \\ 2.49E-10\end{pmatrix}
                                                   
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.392 						\begin{pmatrix}
-                            10 \\ 10 \\ 2\\ 2,5	\end{pmatrix}
+l.393 						\begin{pmatrix}
+                            9.45 \\ 9.55 \\ 2.04 \\ 2.56	\end{pmatrix}
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.392 ...matrix} 10 \\ 10 \\ 2\\ 2,5	\end{pmatrix}
+l.393 ....45 \\ 9.55 \\ 2.04 \\ 2.56	\end{pmatrix}
                                                   
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.394 			 			\begin{pmatrix}
-                             4.88E-12 \\ 2.98E-11 \\ 9.85E-11 \\ 4.07E-10\en...
+l.395 			 			\begin{pmatrix}
+                             0.55 \\ 0.45 \\ 0.04 \\ 0.06	\end{pmatrix} \\ \...
 
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.394 ...E-11 \\ 9.85E-11 \\ 4.07E-10\end{pmatrix}
-                                                   \\ \hline
+l.395 ....55 \\ 0.45 \\ 0.04 \\ 0.06	\end{pmatrix}
+                                                   \\ \hlineend{pmatrix} \\ ...
+
 ? 
-[9 <./img/gradient_conjugue.png> <./img/gradiantConjugue.png>] [10]
-<img/moindres_carres_rec.png, id=63, 547.04375pt x 284.06125pt>
+! Undefined control sequence.
+<recently read> \hlineend 
+                          
+l.395 ...\ 0.04 \\ 0.06	\end{pmatrix} \\ \hlineend
+                                                  {pmatrix} \\ \hline
+? 
+[10 <./img/gradient_conjugue.png> <./img/gradiantConjugue.png>] [11]
+<img/moindres_carres_rec.png, id=66, 547.04375pt x 284.06125pt>
 File: img/moindres_carres_rec.png Graphic file (type png)
 
 <use img/moindres_carres_rec.png>
-Package pdftex.def Info: img/moindres_carres_rec.png used on input line 414.
+Package pdftex.def Info: img/moindres_carres_rec.png used on input line 415.
 (pdftex.def)             Requested size: 273.5212pt x 142.03026pt.
 
-<img/moindresCarres.png, id=64, 913.4125pt x 499.8675pt>
+<img/moindresCarres.png, id=67, 913.4125pt x 499.8675pt>
 File: img/moindresCarres.png Graphic file (type png)
 
 <use img/moindresCarres.png>
-Package pdftex.def Info: img/moindresCarres.png used on input line 422.
+Package pdftex.def Info: img/moindresCarres.png used on input line 423.
 (pdftex.def)             Requested size: 456.70514pt x 249.93314pt.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.436 					\begin{pmatrix}
+l.437 					\begin{pmatrix}
                            10 \\ 10 \\ 2 \\ 2.5	\end{pmatrix}
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.436 ...atrix} 10 \\ 10 \\ 2 \\ 2.5	\end{pmatrix}
+l.437 ...atrix} 10 \\ 10 \\ 2 \\ 2.5	\end{pmatrix}
                                                   
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.438 						\begin{pmatrix}
+l.439 						\begin{pmatrix}
                             2.62E-5 \\ 2.15E-5 \\ 2.72E-6 \\ 1.91E-6\end{pma...
 
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.438 ....15E-5 \\ 2.72E-6 \\ 1.91E-6\end{pmatrix}
+l.439 ....15E-5 \\ 2.72E-6 \\ 1.91E-6\end{pmatrix}
                                                   
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.440 						\begin{pmatrix}
-                            10 \\ 10 \\ 2\\ 2,5	\end{pmatrix}
+l.441 						\begin{pmatrix}
+                            10.82 \\ 11.52 \\ 1.84 \\ 2.36	\end{pmatrix}
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.440 ...matrix} 10 \\ 10 \\ 2\\ 2,5	\end{pmatrix}
+l.441 ...82 \\ 11.52 \\ 1.84 \\ 2.36	\end{pmatrix}
                                                   
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.442 			 			\begin{pmatrix}
-                             2.57E-5 \\ 2.09E-5 \\ 2.68E-6 \\ 1.88E-6\end{pm...
+l.443 			 			\begin{pmatrix}
+                             0.82 \\ 1.52 \\ 0.16 \\ 0.14	\end{pmatrix} \\ \...
 
 ? 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.442 ....09E-5 \\ 2.68E-6 \\ 1.88E-6\end{pmatrix}
-                                                   \\ \hline
+l.443 ....82 \\ 1.52 \\ 0.16 \\ 0.14	\end{pmatrix}
+                                                   \\ \hlinehline
+? 
+! Undefined control sequence.
+<recently read> \hlinehline 
+                            
+l.443 ...0.16 \\ 0.14	\end{pmatrix} \\ \hlinehline
+                                                  
 ? 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[11 <./img/moindres_carres_rec.png> <./img/moindresCarres.png>] [12]
-
-! Package inputenc Error: Unicode char \u8:̀ not set up for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.455 ...ltat reste approximatif – mais tout à
-                                                   fait réaliste – dans l...
-
-? 
-[13] (./Rapport.aux)
+[12 <./img/moindres_carres_rec.png> <./img/moindresCarres.png>] [13]
+(./Rapport.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5446 strings out of 493304
- 73219 string characters out of 6139871
+ 5447 strings out of 493304
+ 73232 string characters out of 6139871
  167383 words of memory out of 5000000
- 8802 multiletter control sequences out of 15000+600000
+ 8803 multiletter control sequences out of 15000+600000
  15145 words of font info for 41 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,15n,24p,478b,264s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,15n,24p,544b,264s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
@@ -919,7 +922,7 @@ pe1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/
 sfbx2488.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfcc1095.pfb></usr/s
 hare/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/share/texmf/fonts/typ
 e1/public/cm-super/sfrm1440.pfb>
-Output written on Rapport.pdf (14 pages, 741013 bytes).
+Output written on Rapport.pdf (14 pages, 741724 bytes).
 PDF statistics:
  122 PDF objects out of 1000 (max. 8388607)
  77 compressed objects within 1 object stream

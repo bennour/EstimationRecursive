@@ -174,14 +174,6 @@
 			\item v : la vitesse circulaire.
 		\end{itemize}
 		
-		A ceci, s'ajoute le bruit lorsque la simulation est lancée avec. Le bruit est ici implémenté par la génération d'un nombre aléatoire variant entre [- rayon * 3 \%; rayon * 3 \% ] dont l’espérance mathématique est de 0.
-
-			\begin{equation} 
-				x_{t} = x_{c} + R \times \cos( v \times t)  + bruit
-			\end{equation}
-			\begin{equation} 
-				y_{t} = y_{c} + R \times \sin( v \times t) + bruit
-			\end{equation}
 
 
 		\subsection{Le simulateur}
@@ -245,6 +237,15 @@
 				\end{pmatrix}
 		\end{equation*}
 
+		\paragraph{}
+		S'ajoute ensuite le bruit lorsque la simulation est lancée. Le bruit est ici implémenté par la génération d'un nombre aléatoire variant entre [- rayon * 3 \%; rayon * 3 \% ] dont l’espérance mathématique est de 0.
+		Le bruit est appliqué à la matrice B juste après le calcul de l'angle entre l'oberservateur et le mobile. 
+		On obtient alors pour toute ligne i de la matrice B :
+
+			\begin{equation} 
+				\sin(\theta(i)) \times x_p(i) - \cos(\theta(i)) \times y_p(i) + bruit
+			\end{equation}
+
 		\newpage
 
 		\subsection{Les tests}
@@ -295,7 +296,7 @@
 			\end{pmatrix}
 		\end{align}
 
-		\subsection{Méthode inverse}
+		\subsection{Méthode par l'inverse}
 
 			\subsubsection{Algorithme}
 
@@ -337,14 +338,14 @@
 						&	
 						\begin{pmatrix} 2.61E-12 \\ 2.05E-12 \\ 2.70E-13 \\ 1.42E-13\end{pmatrix}       
 						&
-						\begin{pmatrix} 10 \\ 10 \\ 2\\ 2,5	\end{pmatrix}
+						\begin{pmatrix} 9.47 \\ 9.54 \\ 2.05 \\ 2.54	\end{pmatrix}
 			             &     
-			 			\begin{pmatrix} 6.25E-13 \\ 1.70E-13 \\ 1.21E-13 \\ 0	\end{pmatrix} \\ \hline
+			 			\begin{pmatrix} 0.53\\ 0.46 \\ 0.05 \\ 0.04	\end{pmatrix} \\ \hline
 			\end{tabular}
 			\end{table}
 
 			\paragraph{}
-			Les résultats calculés avec et sans bruit sont excellents. Ils resten relativement bon et assez proche de la réalité.
+			Les résultats calculés sans le bruit sont excellents. Cependant les résultats avec le bruit faussent légèrement l'éstimation mais ils restent relativement bon et assez proche de la réalité.
 
 
 	\newpage
@@ -387,20 +388,20 @@
 			Estimation & Erreur & Estimation & Erreur \\ \hline
 					\begin{pmatrix} 10 \\ 10 \\ 2 \\ 2.5	\end{pmatrix}
 						&	
-						\begin{pmatrix} 2.74E-12 \\ 1.82E-11 \\ 5.78E-11 \\ 2.49E-10\end{pmatrix}       
-						&
-						\begin{pmatrix} 10 \\ 10 \\ 2\\ 2,5	\end{pmatrix}
+						\begin{pmatrix} 2.74E-12 \\ 1.82E-11 \\ 5.78E-11 \\ 2.49E-10\end{pmatrix}    
+						&   
+						\begin{pmatrix} 9.45 \\ 9.55 \\ 2.04 \\ 2.56	\end{pmatrix}
 			             &     
-			 			\begin{pmatrix} 4.88E-12 \\ 2.98E-11 \\ 9.85E-11 \\ 4.07E-10\end{pmatrix} \\ \hline
+			 			\begin{pmatrix} 0.55 \\ 0.45 \\ 0.04 \\ 0.06	\end{pmatrix} \\ \hlineend{pmatrix} \\ \hline
 			\end{tabular}
 			\end{table}
 
 			\paragraph{}
-			Même constat qu’avec la méthode inverse,les résultats obtenus étant assez similaires.
+			Même constat qu’avec la méthode inverse, les résultats calculés sans le bruit sont excellents et ceux avec le bruit restent relativement bon et assez proche de la réalité.
 
 	\newpage
 
-		\subsection{Méthode récursive des moindres carrés}
+		\subsection{Méthode des moindres carrés récursifs}
 
 			\subsubsection{Algorithme}
 
@@ -437,25 +438,24 @@
 						&	
 						\begin{pmatrix} 2.62E-5 \\ 2.15E-5 \\ 2.72E-6 \\ 1.91E-6\end{pmatrix}       
 						&
-						\begin{pmatrix} 10 \\ 10 \\ 2\\ 2,5	\end{pmatrix}
+						\begin{pmatrix} 10.82 \\ 11.52 \\ 1.84 \\ 2.36	\end{pmatrix}
 			             &     
-			 			\begin{pmatrix} 2.57E-5 \\ 2.09E-5 \\ 2.68E-6 \\ 1.88E-6\end{pmatrix} \\ \hline
+			 			\begin{pmatrix} 0.82 \\ 1.52 \\ 0.16 \\ 0.14	\end{pmatrix} \\ \hlinehline
 			\end{tabular}
 			\end{table}
 
 			\paragraph{}
-			Dans le cas d'une mesure sans bruit les résultats sont tout aussi bons qu'avec les autres méthodes. Cependant l'éstimation avec bruit nous donne toujours un résultat aussi approximatif.
+			Dans le cas d'une mesure sans bruit les résultats sont tout aussi parfaits qu'avec les autres méthodes. Cependant on ressent une erreur plus importante lors de l'insertion du bruit.
 
 	\newpage
 
 	\section{Conclusion}
 		
 		\paragraph{}
-		% TODO Quand t'auras finies je ferai ça
-		Grâce aux trois méthodes mathématiques présentées ici, il a été possible de déterminer la vitesse et la position initiale du mobile en déplacement. Cependant, aucune des trois méthodes ne s’est réellement démarquée : toutes donnent un résultat plus que correct lorsque la mesure a été effectuée sans bruit, tandis que le résultat reste approximatif – mais tout à fait réaliste – dans le cas d’une mesure avec bruit.
+		Grâce aux trois méthodes mathématiques présentées ici, il a été possible de déterminer la vitesse et la position initiale du mobile en déplacement. Toutes donnent un résultat plus que correct lorsque la mesure est effectuée sans bruit, tandis que le résultat reste approximatif – mais tout à fait réaliste – dans le cas d’une mesure avec bruit. Il est bon de signaler que dans le cadre de cette simulation, la méthode de résolution par moindres carrés récursifs reste la moins précise.
 
 		\paragraph{}
-		Dans le cadre du premier projet, il aurait été possible d’intégrer les connaissances acquises ici. En effet, il s’agissait d’un hélicoptère qui devait se poser sur une plateforme non mobile. Il aurait alors été possible de faire bouger cette plateforme, puis d’estimer la position que doit atteindre l’hélicoptère pour atterrir dessus.
+		Dans le cadre du projet fait lors de la prmière partie de ce cours, il aurait été possible d’intégrer les connaissances acquises ici. En effet, il s’agissait de poser un module sur un des astres du système solaire. La suite de ce projet se penche donc logiquement vers l'ajout d'un module à envoyer depuis l'observateur qui atterit sur le mobile une fois les paramètres initiaux du mobile éstimés. Et dans ce cas les bruits risquent vraiment de poser problème...
 
 
 \end{document}
