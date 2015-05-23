@@ -237,14 +237,21 @@
 				\end{pmatrix}
 		\end{equation*}
 
+		
 		\paragraph{}
-		S'ajoute ensuite le bruit lorsque la simulation est lancée. Le bruit est ici implémenté par la génération d'un nombre aléatoire variant entre [- rayon * 3 \%; rayon * 3 \% ] dont l’espérance mathématique est de 0.
+		S'ajoute ensuite le bruit lorsque la simulation est lancée.
 		Le bruit est appliqué à la matrice B juste après le calcul de l'angle entre l'oberservateur et le mobile. 
 		On obtient alors pour toute ligne i de la matrice B :
 
 			\begin{equation} 
 				\sin(\theta(i)) \times x_p(i) - \cos(\theta(i)) \times y_p(i) + bruit
 			\end{equation}
+
+		
+		\subsection{Le bruit}
+		\paragraph{}
+		Le bruit est ici implémenté par la génération d'un nombre aléatoire dont l’espérance mathématique est de 0. Le bruit suit une loi normale d'espérance 0 et d'écart-type 3 * rayon. La loi normale nous permet d'avoir un tirage aléatoire plus réaliste et plus proche de la moyenne. 68\% des valeurs de cette loi seront dans l'intervalle [- 3 * rayon; 3 * rayon].  
+		
 
 		\newpage
 
